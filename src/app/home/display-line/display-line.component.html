@@ -1,0 +1,21 @@
+<div class="homeLu" >
+
+  <div class="col-md-3 col-md-offset-9">
+
+    <div class="col-md-12">
+      <div class="list-group" style="margin:140px 0">
+        <a class="list-group-item" *ngFor="let item of videoInfos; let in = index" 
+           (mousemove) = "onli(in)" (click) = "linkToVideo(in)">
+          {{item.imgName}}
+          </a>
+        <!--<a class="list-group-item" (mousemove) = "onli()"
+           (mouseout) = "overli()">Cras justo odio</a>
+        <a class="list-group-item">Dapibus ac facilisis in</a>
+        <a class="list-group-item">Morbi leo risus</a>
+        <a class="list-group-item">Porta ac consectetur ac</a>
+        <a class="list-group-item">Vestibulum at eros</a>-->
+      </div>
+    </div>
+    
+  </div>
+</div>

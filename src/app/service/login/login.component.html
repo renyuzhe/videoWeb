@@ -1,0 +1,18 @@
+<form [formGroup]="userInfo" (submit)="startLogin()" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="userName">
+    </label>
+
+    <label class="center-block">Password:
+      <input class="form-control" formControlName="passWord">
+    </label>
+
+    
+
+    <label class="center-block">
+      <button type="submit">login</button>
+    </label>
+  </div>
+
+</form>

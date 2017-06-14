@@ -1,0 +1,20 @@
+<form [formGroup]="userInfo" (submit)="stratRegister()" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="userName">
+    </label>
+
+    <label class="center-block">Password:
+      <input class="form-control" formControlName="passWord">
+    </label>
+
+    <label class="center-block">Password:
+      <input class="form-control" formControlName="email">
+    </label>
+
+    <label class="center-block">
+      <button type="submit">register</button>
+    </label>
+  </div>
+
+</form>

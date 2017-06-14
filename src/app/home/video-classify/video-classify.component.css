@@ -1,0 +1,9 @@
+nav ul li{
+    float:left;
+    margin: 15px 30px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
