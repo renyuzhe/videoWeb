@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getSupport } from '../../service/getsupport.service';
-
+import { Router} from '@angular/router'
 @Component({
   selector: 'app-display-line',
   templateUrl: './display-line.component.html',
@@ -36,7 +36,10 @@ export class DisplayLineComponent implements OnInit {
   public videoImg = "";
 
 
-  constructor(private getsu: getSupport) {
+  constructor(
+    private getsu: getSupport,
+    private router: Router
+    ) {
 
 
 
@@ -48,7 +51,7 @@ export class DisplayLineComponent implements OnInit {
     this.getsu.support()
       .subscribe(
         data => {
-        console.log(data);
+        
         this.videoInfos = data;
         }
       )
@@ -65,7 +68,9 @@ export class DisplayLineComponent implements OnInit {
   }
   linkToVideo(i: number) {
     //请求视频信息
+    let vid = this.videoInfos[i].mid;
     console.log(i);
+    this.router.navigateByUrl("/play/" + vid);
   }
 
 }

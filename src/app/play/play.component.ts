@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { ActivatedRoute, Params} from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { getVideoAd} from '../service/getVideoAndAd.service';
 @Component({
   selector: 'app-play',
   templateUrl: './play.component.html',
@@ -8,18 +9,45 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 })
 export class PlayComponent implements OnInit {
 
+  private vid: string;
 
-  private videosrc: string = 'assets/video/test.mp4';
-  private adsrc: string = 'assets/video/ac.mp4';
+  private isLoading: boolean = false;
+  private videosrc: string = '';
+  private adsrc: string = '';
   private isLogin:boolean = false;
   private isPlay:boolean = false;
   private vSrc:string = "";
-  constructor() { }
+
+  constructor(
+    private activatedRoute:ActivatedRoute,
+    private getvideoandads:getVideoAd
+    
+  ) { 
+    
+
+    
+    
+  }
 
   ngOnInit() {
-    if(this.isLogin == true){
+    
+    if (this.isLogin == true) {
       this.isPlay = true;
     }
+    this.activatedRoute.params.subscribe(params => {
+      this.vid = params['i'];
+      console.log(this.vid);
+      
+      this.getvideoandads.support(this.vid).subscribe(data=>{
+        this.adsrc = data.ads;
+        this.videosrc = data.movie;
+        this.isLoading = true;
+      })
+
+
+    })
+
+      
     
   }
 
@@ -55,6 +83,8 @@ export class PlayComponent implements OnInit {
     this.isPlay = true;
     
   }
+
+ 
 
 
 }

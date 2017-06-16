@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TabsetComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-resource-manage',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourceManageComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(
+    
+  ) { }
 
   ngOnInit() {
+        
   }
+  
 
 }
+

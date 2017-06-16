@@ -3,7 +3,7 @@ import {RouterModule,Routes} from '@angular/router';
 export const appRouters: Routes = [
     {
         path:'',
-        loadChildren:'./home/home.module#HomeModule',
+        loadChildren: './home/home.module#HomeModule',
         pathMatch:'full'
     },
     {
@@ -11,7 +11,11 @@ export const appRouters: Routes = [
         loadChildren: './home/home.module#HomeModule'
     },
     {
-        path:'play',
+        path: 'search/:name',
+        loadChildren: './search/search.module#SearchModule'
+    },
+    {
+        path:'play/:i',
         loadChildren:'./play/play.module#PlayModule'
     },
     {

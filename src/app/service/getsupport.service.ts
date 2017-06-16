@@ -15,7 +15,7 @@ export class getSupport {
 
 
     public support():Observable<video[]>{
-        return this.http.get(service + '/video/Support')
+        return this.http.get(service + '/Support')
             .map((res: Response) =>{
                 let result = res.json() as video[];
                 return result;
@@ -35,4 +35,5 @@ export class getSupport {
 class video {
     imgSrc: string;
     imgName: string;
+    mid: string;
 }

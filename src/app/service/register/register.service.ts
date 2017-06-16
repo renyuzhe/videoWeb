@@ -8,6 +8,7 @@ export class userRegister{
     public userName:string;
     public passWord:string;
     public email: string;
+    
     constructor(public http:Http){}
 
     public register(){
@@ -30,6 +31,7 @@ export class userRegister{
         data.append('userName',this.passWord);
         data.append('passWord',this.passWord);
         data.append('email',this.email);
+        
 
         
 

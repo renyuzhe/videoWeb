@@ -59,18 +59,33 @@
     </div>
   </div>
 </div>
+<div *ngIf="isLoading">
+  <div class="col-md-10 col-md-offset-1">
+    <video *ngIf="isPlay == false" width="100%" autoplay (ended)="next()">
 
-<div class="col-md-10 col-md-offset-1">
-  <video *ngIf="isPlay == false" width="100%" autoplay (ended) = "next()">
+      <source [src]='adsrc' type="video/mp4">
+    </video>
 
-    <source src='assets/video/ac.mp4' type="video/mp4">
-  </video>
+    <video *ngIf="isPlay" width="100%" controls="controls">
 
-  <video *ngIf="isPlay" width="100%" controls="controls" autoplay >
-
-    <source src='assets/video/test.mp4' type="video/mp4">
-  </video>
+      <source [src]='videosrc' type="video/mp4">
+    </video>
+  </div>
 </div>
+
+
+
+
+
 <div class="col-md-10 col-md-offset-1">
-  <app-video-comment></app-video-comment>
+  <div>
+    <div class="col-md-4">
+      <app-video-info [vid] = "vid"></app-video-info>
+    </div>
+    <div class="col-md-8">
+      <app-video-comment [vid] = "vid"></app-video-comment>
+    </div>
+
+
+  </div>
 </div>

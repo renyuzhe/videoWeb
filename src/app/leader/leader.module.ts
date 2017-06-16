@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule} from '@angular/router';
 import { LeaderComponent} from './leader.component';
 import { leaderRoutes} from './leader.router';
+
+
 @NgModule({
   imports: [
     CommonModule,

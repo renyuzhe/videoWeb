@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-video-comment',
@@ -7,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoCommentComponent implements OnInit {
 
-  public max: number = 10;
-  public rate: number = 7;
-  public isReadonly: boolean = true;
-
+  
+  @Input() vid: string;
 
   public commentMax: number = 10;
   public commentRate: number = 7;
@@ -40,7 +38,9 @@ export class VideoCommentComponent implements OnInit {
     console.log('Number items per page: ' + event.itemsPerPage);
   }
 
-  constructor() { }
+  constructor(
+    
+  ) { }
 
   ngOnInit() {
   }

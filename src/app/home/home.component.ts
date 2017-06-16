@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,10 +8,15 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit() {
+    
   }
+
+  private searchValue:string = ''; 
 
   @ViewChild('registerModal') public registerModal: ModalDirective;
   @ViewChild('loginModal') public loginModal: ModalDirective;
@@ -37,6 +43,11 @@ export class HomeComponent implements OnInit {
 
   closeLogin(event: boolean) {
     this.hideLoginModal();
+  }
+
+  search(){
+    console.log(this.searchValue);
+    this.router.navigateByUrl('/search/' + this.searchValue);
   }
 
 

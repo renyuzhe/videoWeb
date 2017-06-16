@@ -4,14 +4,14 @@ import { RouterModule} from '@angular/router';
 import { PlayComponent} from './play.component';
 import { playRoutes} from './play.router';
 import { ModalModule } from 'ngx-bootstrap';
-import { RegisterComponent } from '../service/register/register.component';
-import { LoginComponent } from '../service/login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { userRegister } from '../service/register/register.service';
-import { userLogin } from '../service/login/login.service';
+
 import { VideoCommentComponent } from './video-comment/video-comment.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { UserModule } from '../service/user/user.module';
+import { getMovie } from '../service/getVideoInfo.service';
+import { VideoInfoComponent } from './video-info/video-info.component';
+import { getVideoAd } from '../service/getVideoAndAd.service';
 @NgModule({
   imports: [
     ModalModule.forRoot(),
@@ -19,18 +19,16 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     PaginationModule.forRoot(),
     CommonModule,
     RouterModule.forChild(playRoutes),
-    FormsModule,
-    ReactiveFormsModule
+    UserModule
   ],
   declarations: [
     PlayComponent,
-    RegisterComponent,
-    LoginComponent,
-    VideoCommentComponent
+    VideoCommentComponent,
+    VideoInfoComponent
   ],
   providers: [
-    userRegister,
-    userLogin
+    getMovie,
+    getVideoAd
   ]
 })
 export class PlayModule { }

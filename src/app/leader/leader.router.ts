@@ -4,6 +4,13 @@ import {LeaderComponent} from './leader.component';
 export const leaderRoutes: Routes = [
     {
         path:'',
-        component:LeaderComponent
+        component:LeaderComponent,
+        children:[
+            {
+                path: 'eachVideoTime',
+                loadChildren: './each-video-time/each-video-time.module#EachVideoTimeModule'
+            }
+        ]
     }
+    
 ]
