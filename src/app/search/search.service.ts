@@ -33,7 +33,7 @@ export class getByName {
     }
 
 }
-class video {
+export class video {
     picture: string;
     name: string;
     description: string;

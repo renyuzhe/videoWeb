@@ -4,12 +4,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { Video } from '../resource-manage/add-movie/add-movie.component';
+import { Video} from '../resource-manage/add-movie/add-movie.component';
 @Injectable()
 export class onloadVideo {
 
     private formData: FormData = new FormData();
-
+    
     constructor(
         public http: Http
         ) { }
@@ -26,6 +26,8 @@ export class onloadVideo {
         this.formData.append('name',user.name);
         this.formData.append('description',user.description);
         this.formData.append('length',user.length);
+        
+        
         let headers = new Headers({
              "Accept": "application/json"
           });

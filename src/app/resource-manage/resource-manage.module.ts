@@ -7,6 +7,9 @@ import {resourceRoutes} from './resource-manage.router';
 import { onloadVideo } from '../service/updateMovieInfo.service';
 import { TabsModule } from 'ngx-bootstrap';
 import { AddMovieComponent } from './add-movie/add-movie.component';
+import { onloadActor } from '../service/uploadActorInfo.service';
+import { RemoveMovieComponent } from './remove-movie/remove-movie.component';
+import { getByName } from '../search/search.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,8 +18,8 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
     FormsModule
     
   ],
-  declarations: [ResourceManageComponent, AddMovieComponent],
-  providers:[onloadVideo]
+  declarations: [ResourceManageComponent, AddMovieComponent, RemoveMovieComponent],
+  providers:[onloadVideo,onloadActor,getByName]
 
 })
 export class ResourceManageModule { }

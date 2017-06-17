@@ -26,11 +26,25 @@
     <label>电影图片</label>
     <input type="file"(change)="onImageChanged($event.target.files)" placeholder="Upload img" accept="image/*">
   </div>
+<button (click)="update()" class="btn btn-default form-control">提交</button>
+
+  <div class="form-group">
+    <label>演员名字</label>
+    <input type="text" class="form-control" [(ngModel)]="actor.actorName">
+  </div>
+  <div>
+    <label>演员图片</label>
+    <input type="file" (change)="onActorImageChanged($event.target.files)" placeholder="Upload img" accept="image/*">
+    <button (click)="addActor()"  [disabled] = "actorResult.length == 0">添加演员</button>
+  </div>
   
-  <button (click)="update()" class="btn btn-default form-control">提交</button>
-
+  
+  
 </div>
-
+<div class="col-md-4" *ngFor="let item of actorResult">
+  <img [src]= "item.img" width="100%">
+  <p>{{item.name}}</p>
+</div>
 
 
 
