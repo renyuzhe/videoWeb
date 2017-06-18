@@ -1,7 +1,11 @@
 <input type="text" [(ngModel)] = "searchVideo" placeholder="movieName">
 <button (click) = 'search()'>查找</button>
 <div *ngFor="let item of testData let i = index">
-  <b>{{item.name}}</b>
-  <b>{{item.mid}}</b>
-  <button (click)="delectMovieById(i)">删除</button>
+  <div>
+    <b>{{item.name}}</b>
+    <b>{{item.mid}}</b>
+    
+    <button (click)="delectMovieById(i)">删除</button>
+  </div>
+  
 </div>

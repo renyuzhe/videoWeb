@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getByName } from './search.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params,Router } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -10,7 +10,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private getmovie: getByName,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -22,6 +23,10 @@ export class SearchComponent implements OnInit {
     })
     
     
+  }
+
+  startPlayMovie(){
+    this.router.navigateByUrl("/play/"+"12341");
   }
 
 }

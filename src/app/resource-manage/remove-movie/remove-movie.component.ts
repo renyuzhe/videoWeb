@@ -36,6 +36,7 @@ export class RemoveMovieComponent implements OnInit {
   delectMovieById(i:number){
     let delectId = this.testData[i].mid;
     console.log("delect" + delectId);
+    
   }
 
 }

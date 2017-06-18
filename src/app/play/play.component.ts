@@ -22,11 +22,7 @@ export class PlayComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private getvideoandads:getVideoAd
     
-  ) { 
-    
-
-    
-    
+  ) {     
   }
 
   ngOnInit() {

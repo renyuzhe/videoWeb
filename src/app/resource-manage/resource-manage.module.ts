@@ -10,6 +10,8 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { onloadActor } from '../service/uploadActorInfo.service';
 import { RemoveMovieComponent } from './remove-movie/remove-movie.component';
 import { getByName } from '../search/search.service';
+import { UploadAdComponent } from './upload-ad/upload-ad.component';
+import { onloadAds} from '../service/uploadAds.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,8 +20,8 @@ import { getByName } from '../search/search.service';
     FormsModule
     
   ],
-  declarations: [ResourceManageComponent, AddMovieComponent, RemoveMovieComponent],
-  providers:[onloadVideo,onloadActor,getByName]
+  declarations: [ResourceManageComponent, AddMovieComponent, RemoveMovieComponent, UploadAdComponent],
+  providers:[onloadVideo,onloadActor,getByName,onloadAds]
 
 })
 export class ResourceManageModule { }

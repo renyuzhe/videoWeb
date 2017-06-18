@@ -8,8 +8,25 @@ import { Component, OnInit } from '@angular/core';
 export class EachVideoTimeComponent implements OnInit {
 
   private type: string = 'bar';
+  private catagories;
+  private series;
   options: Object;
+  
+
+
   constructor() {
+    this.catagories = ['非洲', '美洲', '亚洲', '欧洲', '大洋洲'];
+    this.series = [{
+      name: '1800 年',
+      data: [107, 31, 635, 203, 2]
+    }, {
+      name: '1900 年',
+      data: [133, 156, 947, 408, 6]
+    }, {
+      name: '2008 年',
+      data: [973, 914, 4054, 732, 34]
+    }];
+
     this.options = {
       chart: {
         type: 'bar'
@@ -21,7 +38,7 @@ export class EachVideoTimeComponent implements OnInit {
         text: '数据来源: Wikipedia.org'
       },
       xAxis: {
-        categories: ['非洲', '美洲', '亚洲', '欧洲', '大洋洲'],
+        categories: this.catagories,
         title: {
           text: null
         }
@@ -61,16 +78,7 @@ export class EachVideoTimeComponent implements OnInit {
       credits: {
         enabled: false
       },
-      series: [{
-        name: '1800 年',
-        data: [107, 31, 635, 203, 2]
-      }, {
-        name: '1900 年',
-        data: [133, 156, 947, 408, 6]
-      }, {
-        name: '2008 年',
-        data: [973, 914, 4054, 732, 34]
-      }]
+      series: this.series
     };
   }
   ngOnInit() {

@@ -10,13 +10,14 @@ import { getClassify} from '../../service/getClassify.service';
 export class VideoClassifyComponent implements OnInit {
 
   private classifyInfo:video[]; 
-  
+  private mids: string[] = ["1","2","3"];
   constructor(
     private router:Router,
     private getclassify:getClassify
   ) { }
 
   ngOnInit() {
+    console.log(this.mids.toString());
     this.getclassify.support("爱情","1")
       .subscribe(data=>{
         this.classifyInfo = data;

@@ -33,7 +33,7 @@ export class onloadVideo {
           });
         let options = new RequestOptions({ headers });
 
-        return this.http.post( service + "/UploadServlet", this.formData, options)
+        return this.http.post( service + "/UploadMovieWithType", this.formData, options)
        .map(res => {
             let result = res.text() as string;
             console.log()
