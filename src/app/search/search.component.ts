@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getByName } from './search.service';
+import { getByName,video } from './search.service';
 import { ActivatedRoute, Params,Router } from '@angular/router';
 @Component({
   selector: 'app-search',
@@ -8,6 +8,8 @@ import { ActivatedRoute, Params,Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
+
+  private resultVideos:video[] = [];
   constructor(
     private getmovie: getByName,
     private activatedRoute: ActivatedRoute,
@@ -18,7 +20,7 @@ export class SearchComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       let name = params['name'];
       this.getmovie.support(name).subscribe(data => {
-        console.log(data);
+        this.resultVideos = data;
       })
     })
     

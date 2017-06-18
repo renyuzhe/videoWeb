@@ -17,9 +17,14 @@
     </div>
   </div>
   <div class="col-md-2">
-    <div style="margin:10px auto">
+    <div style="margin:10px auto" *ngIf="isLogin == false">
       <p class="navbar-text" (click)=showRegisterModal()>注册</p>
       <p class="navbar-text" (click)=showLoginModal()>登录</p>
+    </div>
+
+    <div style="margin:10px auto" *ngIf="isLogin == true">
+      <p class="navbar-text" >{{userName}}</p>
+      <p class="navbar-text" (click)=outLogin()>退出</p>
     </div>
 
   </div>

@@ -12,6 +12,7 @@ import { RemoveMovieComponent } from './remove-movie/remove-movie.component';
 import { getByName } from '../search/search.service';
 import { UploadAdComponent } from './upload-ad/upload-ad.component';
 import { onloadAds} from '../service/uploadAds.service';
+import { delectVideo} from '../service/delectMovie.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +22,7 @@ import { onloadAds} from '../service/uploadAds.service';
     
   ],
   declarations: [ResourceManageComponent, AddMovieComponent, RemoveMovieComponent, UploadAdComponent],
-  providers:[onloadVideo,onloadActor,getByName,onloadAds]
+  providers:[onloadVideo,onloadActor,getByName,onloadAds,delectVideo]
 
 })
 export class ResourceManageModule { }

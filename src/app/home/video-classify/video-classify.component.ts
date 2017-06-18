@@ -18,11 +18,7 @@ export class VideoClassifyComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.mids.toString());
-    this.getclassify.support("爱情","1")
-      .subscribe(data=>{
-        this.classifyInfo = data;
-        
-      })
+    this.getScienceMovie();
   }
 
   startPlay(i){
@@ -33,6 +29,30 @@ export class VideoClassifyComponent implements OnInit {
 
   getClassify(){
     return this.classifyInfo;
+  }
+
+  getScienceMovie(){
+    this.getclassify.support("科幻", "1")
+      .subscribe(data => {
+        this.classifyInfo = data;
+
+      })
+  }
+
+  getActionMovie(){
+    this.getclassify.support("动作", "1")
+      .subscribe(data => {
+        this.classifyInfo = data;
+
+      })
+  }
+
+  getLoveMovie(){
+    this.getclassify.support("爱情", "1")
+      .subscribe(data => {
+        this.classifyInfo = data;
+
+      })
   }
 
  

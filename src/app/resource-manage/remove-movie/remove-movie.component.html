@@ -4,8 +4,10 @@
   <div>
     <b>{{item.name}}</b>
     <b>{{item.mid}}</b>
+    <input type="checkbox" name="item.mid" (click) = "addToDelectList(item.mid)">
     
-    <button (click)="delectMovieById(i)">删除</button>
   </div>
   
 </div>
+
+<button (click)="delectMovieById()">删除</button>

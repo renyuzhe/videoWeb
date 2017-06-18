@@ -26,7 +26,8 @@ export class onloadVideo {
         this.formData.append('name',user.name);
         this.formData.append('description',user.description);
         this.formData.append('length',user.length);
-        
+        this.formData.append('director',user.director);
+        this.formData.append('region',user.region);
         
         let headers = new Headers({
              "Accept": "application/json"
@@ -35,7 +36,7 @@ export class onloadVideo {
 
         return this.http.post( service + "/UploadMovieWithType", this.formData, options)
        .map(res => {
-            let result = res.text() as string;
+            let result = res.json().mid as string;
             console.log()
             return result;
        })

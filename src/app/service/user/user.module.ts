@@ -5,6 +5,7 @@ import { LoginComponent } from '../login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { userRegister } from '../register/register.service';
 import { userLogin } from '../login/login.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { userLogin } from '../login/login.service';
   ],
   providers:[
     userRegister,
-    userLogin
+    userLogin,
+    CookieService
   ],
   exports:[
     FormsModule,

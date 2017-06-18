@@ -31,7 +31,7 @@ export class onloadActor {
         });
         let options = new RequestOptions({ headers });
 
-        return this.http.post(service + "/UploadActor", this.formData, options)
+        return this.http.post(service + "/UploadMovieWithActor", this.formData, options)
             .map(res => {
                 let result = res.json() as actorAll[];
                 console.log()

@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges} from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Router} from '@angular/router';
+import { CookieService } from 'angular2-cookie/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,11 +9,23 @@ import { Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  private isLogin:boolean = false;
+  private userName;
   constructor(
-    private router:Router
+    private router:Router,
+    private cookie:CookieService
   ) { }
 
   ngOnInit() {
+    let userName = this.cookie.get("userName");
+    if (typeof (userName) == "undefined"){
+      this.isLogin = false;
+    }else{
+      this.isLogin = true;
+      this.userName = userName;
+    }
+    
+    
     
   }
 
@@ -27,6 +40,13 @@ export class HomeComponent implements OnInit {
 
   public hideRegisterModal(): void {
     this.registerModal.hide();
+    let userName = this.cookie.get("userName");
+    if (typeof (userName) == "undefined") {
+      this.isLogin = false;
+    } else {
+      this.isLogin = true;
+      this.userName = userName;
+    }
   }
 
   public showLoginModal(): void {
@@ -35,6 +55,13 @@ export class HomeComponent implements OnInit {
 
   public hideLoginModal(): void {
     this.loginModal.hide();
+    let userName = this.cookie.get("userName");
+    if (typeof (userName) == "undefined") {
+      this.isLogin = false;
+    } else {
+      this.isLogin = true;
+      this.userName = userName;
+    }
   }
 
   closeRegister(event:boolean){
@@ -49,6 +76,14 @@ export class HomeComponent implements OnInit {
     console.log(this.searchValue);
     this.router.navigateByUrl('/search/' + this.searchValue);
   }
+
+  outLogin(){
+    this.cookie.removeAll();
+    this.isLogin = false;
+  }
+
+  
+  
 
 
 

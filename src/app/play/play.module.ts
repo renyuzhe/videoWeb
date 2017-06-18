@@ -4,7 +4,7 @@ import { RouterModule} from '@angular/router';
 import { PlayComponent} from './play.component';
 import { playRoutes} from './play.router';
 import { ModalModule } from 'ngx-bootstrap';
-
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { VideoCommentComponent } from './video-comment/video-comment.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -28,7 +28,8 @@ import { getVideoAd } from '../service/getVideoAndAd.service';
   ],
   providers: [
     getMovie,
-    getVideoAd
+    getVideoAd,
+    CookieService
   ]
 })
 export class PlayModule { }

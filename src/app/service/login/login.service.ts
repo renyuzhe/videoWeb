@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {service} from '../service.config';
+import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class userLogin {
     public userName: string;
@@ -9,21 +10,17 @@ export class userLogin {
    
     constructor(public http: Http) { }
 
-    public login() {
-        console.log("start login");
-        let body = JSON.stringify(
-            { "username": this.userName, "password": this.passWord }
-        )
+    public login():Observable<string> {
+        let data = new URLSearchParams();
+        data.append('userName', this.userName);
+        data.append('passWord', this.passWord);
+        
 
-        let headers = new Headers({ 'Content-Type': 'application/json' }); //其实不表明 json 也可以, ng 默认好像是 json
-        let options = new RequestOptions({
-            headers: headers
-        })
-
-        this.http.post(service + '/login', body, options)
-            .map(res => res.text())
-            .subscribe(data => {
-                console.log(data);
-            });
+        return this.http.post(service + '/Login', data)
+            .map(res =>{
+                let result = res.json().status as string;
+                return result;
+            })
+            
     }
 }

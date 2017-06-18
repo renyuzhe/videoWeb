@@ -21,7 +21,7 @@ export class AddMovieComponent implements OnInit {
     }
   ]
   private actor: Actor = new Actor();
-
+  private movieMid;
   private 
   constructor(
     private onloadvideo: onloadVideo,
@@ -48,13 +48,18 @@ export class AddMovieComponent implements OnInit {
     
     this.onloadvideo.support(this.video).subscribe(data => {
       console.log(data);
+      this.movieMid = data;
+
+      this.actor.mid = this.movieMid;
     })
   }
 
   addActor(){
-    this.actor.mid = "1232";
+    
     this.onloadactor.support(this.actor).subscribe(data=>{
+      
       console.log(data);
+      
     })
   }
 
@@ -72,6 +77,8 @@ export class Video {
   name: string;
   description:string;
   length:string;
+  director:string;
+  region:string;
   
 }
 
@@ -80,4 +87,8 @@ export class Actor{
   actorName:string;
   actorImg:File;
 }
+
+
+
+
 

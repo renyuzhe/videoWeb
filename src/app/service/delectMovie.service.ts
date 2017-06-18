@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { service } from './service.config';
 
 @Injectable()
-export class getMovie {
+export class delectVideo {
 
 
 
@@ -14,38 +14,22 @@ export class getMovie {
 
 
 
-    public support(mid: string): Observable<video> {
+    public support(delectList: string): Observable<string> {
 
 
         let data = new URLSearchParams();
-        data.append('mid', mid);
-        
+        data.append('mids',delectList);
 
-        return this.http.post(service + '/GetMovieByID', data)
+
+        return this.http.post(service + '/DeleteMovieByIds', data)
             .map((res: Response) => {
-                let result = res.json() as video;
+                let result = res.json().status as string;
                 console.log(result);
                 return result;
             })
-        
+
 
 
     }
 
-}
-class video {
-    picture: string;
-    name: string;
-    description: string;
-    mid: string;
-    source:string;
-    length:string;
-    score:number;
-    actor:acter[];
-    director:string;
-    region:string;
-}
-export class acter{
-    name: string;
-    picture: string;
 }

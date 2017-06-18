@@ -14,7 +14,7 @@ export class getByName {
 
 
 
-    public support(name: string): Observable<video> {
+    public support(name: string): Observable<video[]> {
 
 
         let data = new URLSearchParams();
@@ -23,7 +23,7 @@ export class getByName {
         console.log("start submit");
         return this.http.post(service + '/GetMovieByName', data)
             .map((res: Response) => {
-                let result = res.json() as video;
+                let result = res.json() as video[];
                 console.log(result);
                 return result;
             })
@@ -40,5 +40,5 @@ export class video {
     mid: string;
     source: string;
     length: string;
-
+    
 }

@@ -5,7 +5,7 @@ import { RouterModule} from '@angular/router';
 import { HomeComponent} from './home.component';
 import { ModalModule } from 'ngx-bootstrap';
 
-
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { DisplayLineComponent } from './display-line/display-line.component';
 import { getSupport} from '../service/getsupport.service';
 import {getClassify} from '../service/getClassify.service';
@@ -29,7 +29,8 @@ import {UserModule} from '../service/user/user.module';
   ],
   providers:[
     getClassify,
-    getSupport
+    getSupport,
+    CookieService
   ]
 })
 export class HomeModule { }

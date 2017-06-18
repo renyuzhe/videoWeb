@@ -17,9 +17,14 @@
     </div>
   </div>
   <div class="col-md-2">
-    <div style="margin:10px auto">
+    <div style="margin:10px auto" *ngIf="isLogin == false">
       <p class="navbar-text" (click)=showRegisterModal()>注册</p>
       <p class="navbar-text" (click)=showLoginModal()>登录</p>
+    </div>
+
+    <div style="margin:10px auto" *ngIf="isLogin == true">
+      <p class="navbar-text">{{userName}}</p>
+      <p class="navbar-text" (click)=outLogin()>退出</p>
     </div>
 
   </div>
@@ -61,12 +66,12 @@
 </div>
 <div *ngIf="isLoading">
   <div class="col-md-10 col-md-offset-1">
-    <video *ngIf="isPlay == false" width="100%" autoplay (ended)="next()">
+    <video *ngIf="isLogin == false" width="100%" autoplay (ended)="next()">
 
       <source [src]='adsrc' type="video/mp4">
     </video>
 
-    <video *ngIf="isPlay" width="100%" controls="controls">
+    <video *ngIf="isLogin" width="100%" controls="controls">
 
       <source [src]='videosrc' type="video/mp4">
     </video>

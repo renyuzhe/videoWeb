@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { Subject } from 'rxjs/Subject';
+
+import { Observable } from 'rxjs/Observable';
 import { service } from '../service.config';
 @Injectable()
 export class userRegister{
@@ -11,36 +14,23 @@ export class userRegister{
     
     constructor(public http:Http){}
 
-    public register(){
-        console.log("start register");
-        // let body =
-        //     { "userName": this.userName, "passWord": this.passWord, "email": this.email };
+    public register(): Observable<string>{
         
 
-        // let headers = new Headers(
-        //     { 'Content-Type': 'text/html', 'charset':'utf-8' }
-            
-        //     ); 
-        // let options = new RequestOptions({
-        //     headers: headers
-        // })
-
-        // console.log(body);
-
         let data = new URLSearchParams();
-        data.append('userName',this.passWord);
+        data.append('userName',this.userName);
         data.append('passWord',this.passWord);
         data.append('email',this.email);
         
 
         
 
-        this.http.post(service + '/video/Register', data)
-            .map(res => res.json())
-            .toPromise()
-            .then(data => {
-                console.log(data.status);
+        return this.http.post(service + '/Register', data)
+            .map(res => {
+                let result = res.json().status as string;
+                return result;
             })
+            
             
     }
 }

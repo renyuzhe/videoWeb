@@ -21,11 +21,11 @@ export class onloadAds {
 
         this.formData = new FormData();
 
-        this.formData.append('video', ads.video, ads.video.name);
+        this.formData.append('ads', ads.video, ads.video.name);
 
         this.formData.append('name', ads.name);
 
-
+        this.formData.append('company',"gdqywjgdj");
         let headers = new Headers({
             "Accept": "application/json"
         });

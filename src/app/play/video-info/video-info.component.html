@@ -1,13 +1,17 @@
 <p><b>影片信息</b></p>
-<img src="assets/1.png" #imgBig width="100%" height="imgBig.width * 2 / 3">
+<img [src]="picture"  width="100%">
 <div style="margin:0 10px">
 
   <b>评分</b>
   <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
-  7.3
-  <br><b>title</b><br> descript
+  {{score}}
+  <br><b>{{name}}</b>
+  <p>地区:{{region}}</p>
+  <p>导演:{{director}}</p>
+  <p>时长:{{length}}</p>
+  <p>{{description}}</p>
 </div>
-<div class="col-md-4" *ngFor="let item of [{'acterImg':'assets/1.png','acterName':'lili'},{'acterImg':'assets/1.png','acterName':'lili'}]">
-  <img [src]='item.acterImg' tem.acterImg #actername width="100%" height="actername.width">
-  <p>{{item.acterName}}</p>
+<div class="col-md-4" *ngFor="let item of actors">
+  <img [src]='item.picture'  width="100%">
+  <p>{{item.name}}</p>
 </div>
