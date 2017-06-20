@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EachVideoTimeComponent implements OnInit {
 
-  private type: string = 'bar';
+
   private catagories;
   private series;
   options: Object;
@@ -15,70 +15,65 @@ export class EachVideoTimeComponent implements OnInit {
 
 
   constructor() {
-    this.catagories = ['非洲', '美洲', '亚洲', '欧洲', '大洋洲'];
-    this.series = [{
-      name: '1800 年',
-      data: [107, 31, 635, 203, 2]
-    }, {
-      name: '1900 年',
-      data: [133, 156, 947, 408, 6]
-    }, {
-      name: '2008 年',
-      data: [973, 914, 4054, 732, 34]
-    }];
+    
 
     this.options = {
       chart: {
-        type: 'bar'
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
       },
       title: {
-        text: '各洲不同时间的人口条形图'
-      },
-      subtitle: {
-        text: '数据来源: Wikipedia.org'
-      },
-      xAxis: {
-        categories: this.catagories,
-        title: {
-          text: null
-        }
-      },
-      yAxis: {
-        min: 0,
-        title: {
-          text: '人口总量 (百万)',
-          align: 'high'
-        },
-        labels: {
-          overflow: 'justify'
-        }
+        text: '视频浏览量占比'
       },
       tooltip: {
-        valueSuffix: ' 百万'
+        headerFormat: '{series.name}<br>',
+        pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
       },
       plotOptions: {
-        bar: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
           dataLabels: {
             enabled: true,
-            allowOverlap: true
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            
           }
         }
       },
-      legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 100,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor: ('#FFFFFF'),
-        shadow: true
-      },
-      credits: {
-        enabled: false
-      },
-      series: this.series
+      series: [{
+        type: 'pie',
+        name: '访问量占比',
+        data: [
+          {
+            name: 'Firefox',
+            y: 45.0
+          },
+          {
+            name: 'IE',
+            y: 26.8
+          },
+          {
+            name: 'Safari',
+            y: 8.5
+          },
+          {
+            name: 'Chrome',
+            y: 12.8,
+            
+          },
+          
+          {
+            name: 'Opera',
+            y: 6.2
+          },
+          {
+            name: '其他',
+            y: 0.7
+          }
+          
+        ]
+      }]
     };
   }
   ngOnInit() {

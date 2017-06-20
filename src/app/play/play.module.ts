@@ -12,6 +12,8 @@ import { UserModule } from '../service/user/user.module';
 import { getMovie } from '../service/getVideoInfo.service';
 import { VideoInfoComponent } from './video-info/video-info.component';
 import { getVideoAd } from '../service/getVideoAndAd.service';
+import { addCommend} from '../service/uploadCommend.service';
+import { getComment } from '../service/getComment.service';
 @NgModule({
   imports: [
     ModalModule.forRoot(),
@@ -29,7 +31,9 @@ import { getVideoAd } from '../service/getVideoAndAd.service';
   providers: [
     getMovie,
     getVideoAd,
-    CookieService
+    CookieService,
+    addCommend,
+    getComment
   ]
 })
 export class PlayModule { }

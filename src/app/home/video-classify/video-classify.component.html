@@ -4,18 +4,27 @@
 <div class="col-md-10">
   <nav>
     <ul>
+      <li (click)="getLoveMovie()">惊悚</li>
       <li (click) = "getActionMovie()">动作</li>
       <li (click) = "getScienceMovie()">科幻</li>
-      <li (click) = "getLoveMovie()">爱情</li>
+      <li style="float:right" (click)="changeNext()">换一批</li>
     </ul>
+    
   </nav>
+  
+  
 </div>
+
 <div>
   <div class="col-md-5">
     <div class="col-md-12" *ngFor="let item of getClassify(); let i = index" (click)="startPlay(i)">
       <div *ngIf="i == 0">
         <img [src]='item.picture' width="100%">
-        <b>{{item.name}}</b><br> {{item.description}}
+        <b>{{item.name}}</b><br> 
+        <p class="area">
+           {{item.description}}
+        </p>
+        
       </div>
 
     </div>
@@ -23,11 +32,14 @@
   </div>
 
   <div class="col-md-7">
-    <div class="col-md-4" *ngFor="let item of getClassify(); let i = index" (click)="startPlay(i)">
-      <div *ngIf="i > 0">
+    <div class="col-md-4" *ngFor="let item of getClassifyWithoutFirst(); let i = index" (click)="startPlay(i)">
+      
         <img [src]='item.picture' width="100%">
-        <b>{{item.name}}</b><br> {{item.description}}
-      </div>
+        <b>{{item.name}}</b><br> 
+        <p class="area">
+          {{item.description}}
+        </p>
+      
 
     </div>
   </div>

@@ -1,9 +1,6 @@
 <div style="padding-top:50px">
-  <select [(ngModel)]="type" style="float:right">
-  <option value="bar">条形图</option>
-  <option value="123">饼状图</option>
-</select>
-  <div *ngIf="type == 'bar'">
+
+  <div>
 
     <chart [options]="options"></chart>
   </div>

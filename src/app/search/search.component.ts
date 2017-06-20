@@ -27,8 +27,9 @@ export class SearchComponent implements OnInit {
     
   }
 
-  startPlayMovie(){
-    this.router.navigateByUrl("/play/"+"12341");
+  startPlayMovie(id:number){
+    let srarchId =  this.resultVideos[id].mid;
+    this.router.navigateByUrl("/play/" + srarchId);
   }
 
 }

@@ -12,6 +12,8 @@ import {getClassify} from '../service/getClassify.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { VideoClassifyComponent } from './video-classify/video-classify.component';
 import {UserModule} from '../service/user/user.module';
+import { FAQComponent } from './faq/faq.component';
+import { getfaq } from './faq/faq.service';
 @NgModule({
   imports: [
     ModalModule.forRoot(),
@@ -25,12 +27,14 @@ import {UserModule} from '../service/user/user.module';
     HomeComponent,
     
     DisplayLineComponent,
-    VideoClassifyComponent
+    VideoClassifyComponent,
+    FAQComponent
   ],
   providers:[
     getClassify,
     getSupport,
-    CookieService
+    CookieService,
+    getfaq
   ]
 })
 export class HomeModule { }

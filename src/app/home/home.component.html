@@ -23,7 +23,7 @@
     </div>
 
     <div style="margin:10px auto" *ngIf="isLogin == true">
-      <p class="navbar-text" >{{userName}}</p>
+      <p class="navbar-text">{{userName}}</p>
       <p class="navbar-text" (click)=outLogin()>退出</p>
     </div>
 
@@ -36,7 +36,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Child modal</h4>
+        <h4 class="modal-title pull-left">注册</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="hideRegisterModal()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -52,7 +52,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Child modal</h4>
+        <h4 class="modal-title pull-left">登录</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="hideLoginModal()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,5 +70,11 @@
 </div>
 <div class="col-md-10 col-md-offset-1">
   <app-video-classify></app-video-classify>
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+  <app-faq></app-faq>
+
+
 </div>
 

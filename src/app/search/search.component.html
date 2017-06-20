@@ -1,30 +1,37 @@
 <div class="col-md-8 col-md-offset-2">
-  <div *ngFor="let item of resultVideos">
+  <div *ngFor="let item of resultVideos; let i = index">
     <div style="margin:20px">
-      <div class="col-md-3" style="margin:auto 0">
-        <img class="img-responsive" alt="Responsive image" src="assets/1.png">
+      <div class="col-md-3">
+        <img class="img-responsive" alt="Responsive image" [src]="item.picture">
       </div>
       <div class="col-md-9">
+
+        <p>{{item.name}}</p>
+        <p class="pull-right">{{item.length}}</p>
+
+
+
+
+
         <div class="col-md-6">
-          <p>速度与激情</p>
+          <p>{{item.director}}</p>
+
+
         </div>
+
         <div class="col-md-6">
-          <p class="pull-right">7</p>
+
+          <p>{{item.region}}</p>
+
         </div>
 
 
-        <div class="col-md-6">
-          <p>导演</p>
-          <p>地区</p>
-        </div>
-        <div class="col-md-6">
-          <p>主演</p>
+        <div class="col-md-12">
+          {{item.description}}
+
         </div>
         <div class="col-md-12">
-          简介
-        </div>
-        <div class="col-md-12">
-          <button style="margin-top:60px" (click)="startPlayMovie()">播放</button>
+          <button style="margin-top:15px" (click)="startPlayMovie(i)">播放</button>
 
         </div>
 
@@ -32,6 +39,7 @@
       </div>
     </div>
   </div>
-  
+
 
 </div>
+

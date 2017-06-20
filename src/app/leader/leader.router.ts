@@ -9,6 +9,10 @@ export const leaderRoutes: Routes = [
             {
                 path: 'eachVideoTime',
                 loadChildren: './each-video-time/each-video-time.module#EachVideoTimeModule'
+            },
+            {
+                path: 'monthTime',
+                loadChildren: './month-times/month-times.module#MonthTimesModule'
             }
         ]
     }

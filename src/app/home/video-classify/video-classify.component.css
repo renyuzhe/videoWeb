@@ -6,4 +6,10 @@ nav ul li{
 nav ul {
     list-style-type: none;
 }
+.area {
+  height: 90px;
+  line-height: 30px;
+  overflow: hidden;
+  display: block;
+}
 

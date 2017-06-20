@@ -3,10 +3,10 @@ import { Http, RequestOptions, Headers, Response, URLSearchParams } from '@angul
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { service } from '../service/service.config';
+import { service } from '../../service/service.config';
 
 @Injectable()
-export class getByName {
+export class getReport {
 
 
 
@@ -14,33 +14,23 @@ export class getByName {
 
 
 
-    public support(name: string): Observable<video[]> {
+    public support(mid:string): Observable<report[]> {
 
 
         let data = new URLSearchParams();
-        data.append('movieName', name);
+        data.append('mid', mid);
 
-        console.log("start submit");
-        return this.http.post(service + '/GetMovieByName', data)
+        return this.http.post(service + '/Report', data)
             .map((res: Response) => {
-                let result = res.json() as video[];
+                let result = res.json() as report[];
                 console.log(result);
                 return result;
             })
-
-
-
     }
 
 }
-export class video {
-    picture: string;
+export class report {
     name: string;
-    director:string;
-    region:string;
-    description: string;
-    mid: string;
-    source: string;
-    length: string;
+    data: number[];
     
 }

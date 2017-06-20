@@ -1,0 +1,18 @@
+<div style="margin-bottom:30px">
+  <div class="col-md-10">
+    <p>FAQ</p>
+  </div>
+
+  <div class="col-md-2">
+    <p class="pull-right" (click)="more()">换一批</p>
+  </div>
+
+  
+</div>
+
+<div *ngFor="let item of result">
+  <p style="padding:15px; size:25px" class="bg-info">{{item.question}}</p>
+
+  {{item.answer}}
+
+</div>

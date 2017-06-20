@@ -1,6 +1,6 @@
 <p><b>评论</b></p>
 <div>
-  <textarea style="width:100%; height:100px">
+  <textarea style="width:100%; height:100px" [(ngModel)] = "commentInfo">
 
       </textarea> 评分：
   <rating [(ngModel)]="commentRate" [max]="commentMax" [readonly]="commentIsReadonly" (onHover)="hoveringOver($event)" (onLeave)="resetStar()"
@@ -8,23 +8,22 @@
   <span class="label" [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
     [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span> {{commentRate}}
 
-  <button style="float:right">评论</button>
+  <button style="float:right" (click) = "comment()">评论</button>
 
 
 </div>
 <div>
   <p>全部评论</p>
-  <div style="float:left; margin-top:19px">
-    <pre class="card card-block card-header">Page: {{bigCurrentPage}} / {{numPages}}</pre>
-  </div>
+
 
   <div style="float:right">
     <pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm" [boundaryLinks]="true"
-      [rotate]="false" (numPages)="numPages = $event"></pagination>
+      [rotate]="false" (numPages)="numPages = $event" (click) = "call()"></pagination>
   </div>
 </div>
-<div class="col-md-12" *ngFor='let item of [{"name":"123","comment":"qwer"},{"name":"765","comment":"dgtj"}]'>
-  <p>{{item.name}}</p>
+<div class="col-md-12" *ngFor='let item of conmmentresult'>
+  <p>{{item.uname}}</p>
+  <p>{{item.date}}</p>
   <p style="margin:15px 30px">{{item.comment}}</p>
 
 </div>

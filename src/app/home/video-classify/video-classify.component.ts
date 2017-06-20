@@ -9,7 +9,9 @@ import { getClassify} from '../../service/getClassify.service';
 })
 export class VideoClassifyComponent implements OnInit {
 
-  private classifyInfo:video[]; 
+  private classifyInfo:video[] = [];
+  private typeNow: string;
+  private page = 1;
   private mids: string[] = ["1","2","3"];
   constructor(
     private router:Router,
@@ -18,7 +20,8 @@ export class VideoClassifyComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.mids.toString());
-    this.getScienceMovie();
+    
+    this.getLoveMovie();
   }
 
   startPlay(i){
@@ -31,7 +34,13 @@ export class VideoClassifyComponent implements OnInit {
     return this.classifyInfo;
   }
 
+  getClassifyWithoutFirst(){
+    return this.classifyInfo.filter(item => item != this.classifyInfo[0]);
+  }
+
   getScienceMovie(){
+    this.typeNow = "科幻";
+    this.page = 1;
     this.getclassify.support("科幻", "1")
       .subscribe(data => {
         this.classifyInfo = data;
@@ -40,6 +49,8 @@ export class VideoClassifyComponent implements OnInit {
   }
 
   getActionMovie(){
+    this.typeNow = "动作";
+    this.page = 1;
     this.getclassify.support("动作", "1")
       .subscribe(data => {
         this.classifyInfo = data;
@@ -48,11 +59,40 @@ export class VideoClassifyComponent implements OnInit {
   }
 
   getLoveMovie(){
-    this.getclassify.support("爱情", "1")
+    this.typeNow = "惊悚";
+    this.page = 1;
+    this.getclassify.support("惊悚", "1")
       .subscribe(data => {
         this.classifyInfo = data;
 
       })
+  }
+
+  changeNext(){
+    this.page++;
+    if (this.typeNow == "惊悚"){
+      this.getclassify.support("惊悚", this.page.toString())
+        .subscribe(data => {
+          this.classifyInfo = data;
+
+        })
+    }
+
+    if (this.typeNow == "动作") {
+      this.getclassify.support("动作", this.page.toString())
+        .subscribe(data => {
+          this.classifyInfo = data;
+
+        })
+    }
+
+    if (this.typeNow == "科幻") {
+      this.getclassify.support("科幻", this.page.toString())
+        .subscribe(data => {
+          this.classifyInfo = data;
+
+        })
+    }
   }
 
  

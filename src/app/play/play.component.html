@@ -8,12 +8,12 @@
   </div>
   <div class="col-md-5 col-md-offset-2">
     <div style="margin:10px auto">
-      <form class="navbar-form navbar-left">
+      <div class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" [(ngModel)]="searchValue">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+        <button (click)="search()" class="btn btn-default">Submit</button>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
@@ -37,7 +37,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Child modal</h4>
+        <h4 class="modal-title pull-left">注册</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="hideRegisterModal()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -53,7 +53,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Child modal</h4>
+        <h4 class="modal-title pull-left">登录</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="hideLoginModal()">
           <span aria-hidden="true">&times;</span>
         </button>

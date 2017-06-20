@@ -8,29 +8,6 @@ import { Router} from '@angular/router'
 })
 export class DisplayLineComponent implements OnInit {
 
-  // public videoInfos = [
-  //   {
-  //     "imgSrc" : "assets/1.png",
-  //     "imgName" : "firstName"
-  //   },
-  //   {
-  //     "imgSrc": "assets/1.png",
-  //     "imgName": "secondName"
-  //   },
-  //   {
-  //     "imgSrc": "assets/1.png",
-  //     "imgName": "thirdName"
-  //   },
-  //   {
-  //     "imgSrc": "assets/1.png",
-  //     "imgName": "fourthName"
-  //   },
-  //   {
-  //     "imgSrc": "assets/1.png",
-  //     "imgName": "fivthName"
-  //   }
-  // ]
-
   public videoInfos;
 
   public videoImg = "";
@@ -53,6 +30,7 @@ export class DisplayLineComponent implements OnInit {
         data => {
         
         this.videoInfos = data;
+        this.videoImg = "http://192.168.43.193:8080/" +  this.videoInfos[0].imgSrc;
         }
       )
 
@@ -62,7 +40,7 @@ export class DisplayLineComponent implements OnInit {
 
 
   onli(i: number) {
-    this.videoImg = this.videoInfos[i].imgSrc;
+    this.videoImg = "http://192.168.43.193:8080/" + this.videoInfos[i].imgSrc;
 
 
   }

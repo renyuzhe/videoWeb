@@ -21,7 +21,7 @@ export class userRegister{
         data.append('userName',this.userName);
         data.append('passWord',this.passWord);
         data.append('email',this.email);
-        
+        data.append('permission','3');
 
         
 
