@@ -25,7 +25,7 @@ export class onloadAds {
 
         this.formData.append('name', ads.name);
 
-        this.formData.append('company',"gdqywjgdj");
+        this.formData.append('company',ads.company);
         let headers = new Headers({
             "Accept": "application/json"
         });

@@ -5,6 +5,8 @@ import { FormsModule} from '@angular/forms';
 import { AdminComponent} from './admin.component';
 import { adminRoutes} from './admin.router';
 import { addUser} from '../service/addUser.service';
+import { PlayGuard } from './admin.guard';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -12,6 +14,6 @@ import { addUser} from '../service/addUser.service';
     FormsModule
   ],
   declarations: [AdminComponent],
-  providers:[addUser]
+  providers:[addUser,PlayGuard,CookieService]
 })
 export class AdminModule { }

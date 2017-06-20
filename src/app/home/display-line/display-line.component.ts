@@ -30,7 +30,7 @@ export class DisplayLineComponent implements OnInit {
         data => {
         
         this.videoInfos = data;
-        this.videoImg = "http://192.168.43.193:8080/" +  this.videoInfos[0].imgSrc;
+        this.videoImg =  this.videoInfos[0].imgSrc;
         }
       )
 
@@ -40,7 +40,7 @@ export class DisplayLineComponent implements OnInit {
 
 
   onli(i: number) {
-    this.videoImg = "http://192.168.43.193:8080/" + this.videoInfos[i].imgSrc;
+    this.videoImg = this.videoInfos[i].imgSrc;
 
 
   }

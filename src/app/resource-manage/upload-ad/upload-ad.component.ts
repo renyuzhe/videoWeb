@@ -33,4 +33,5 @@ export class UploadAdComponent implements OnInit {
 export class Ads{
   name:string;
   video:File;
+  company:string;
 }

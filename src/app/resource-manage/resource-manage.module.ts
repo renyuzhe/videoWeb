@@ -13,6 +13,8 @@ import { getByName } from '../search/search.service';
 import { UploadAdComponent } from './upload-ad/upload-ad.component';
 import { onloadAds} from '../service/uploadAds.service';
 import { delectVideo} from '../service/delectMovie.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { SourceGuard} from './resource-manage.guard';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,7 +24,7 @@ import { delectVideo} from '../service/delectMovie.service';
     
   ],
   declarations: [ResourceManageComponent, AddMovieComponent, RemoveMovieComponent, UploadAdComponent],
-  providers:[onloadVideo,onloadActor,getByName,onloadAds,delectVideo]
+  providers:[onloadVideo,onloadActor,getByName,onloadAds,delectVideo,CookieService,SourceGuard]
 
 })
 export class ResourceManageModule { }

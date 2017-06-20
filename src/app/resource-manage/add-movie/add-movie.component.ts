@@ -10,16 +10,7 @@ export class AddMovieComponent implements OnInit {
 
   private file: File;
   private video: Video = new Video();
-  private actorResult: actorAll[] = [
-    {
-      "name":"lisixian",
-      "img":"assets/1.png"
-    },
-    {
-      "name": "longjingling",
-      "img": "assets/1.png"
-    }
-  ]
+
   private actor: Actor = new Actor();
   private movieMid;
   private 

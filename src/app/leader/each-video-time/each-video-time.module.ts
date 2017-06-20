@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
 import { FormsModule} from '@angular/forms';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
-
+import { getTimes} from '../../service/getTime.service';
 
 export function highchartsFactory() {
   const hc = require('highcharts/highstock');
@@ -26,6 +26,7 @@ export function highchartsFactory() {
     EachVideoTimeComponent
   ],
   providers:[
+    getTimes,
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory

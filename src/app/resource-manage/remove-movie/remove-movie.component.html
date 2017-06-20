@@ -1,13 +1,13 @@
-<input type="text" [(ngModel)] = "searchVideo" placeholder="movieName">
-<button (click) = 'search()'>查找</button>
+<input type="text" [(ngModel)] = "searchVideo" placeholder="movieName" style="margin:20px 15px">
+<button (click) = 'search()' style="margin:20px 15px; float:right">查找</button>
 <div *ngFor="let item of testData let i = index">
-  <div>
+  <div style="margin: 20px 0">
+    <input type="checkbox" name="item.mid" (click)="addToDelectList(item.mid)">
+    <b style="margin:0 50px">{{item.mid}}</b>
     <b>{{item.name}}</b>
-    <b>{{item.mid}}</b>
-    <input type="checkbox" name="item.mid" (click) = "addToDelectList(item.mid)">
-    
+       
   </div>
   
 </div>
-
-<button (click)="delectMovieById()">删除</button>
+<br/>
+<button (click)="delectMovieById()" class="form-control">删除</button>

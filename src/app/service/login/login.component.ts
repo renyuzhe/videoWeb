@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { userLogin } from './login.service';
+import { userType} from '../userType.service';
 import { CookieService } from 'angular2-cookie/core';
 import { Router} from '@angular/router';
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private login: userLogin,
     private cookie: CookieService,
-    private router:Router) {
+    private router:Router,
+    private usertype: userType) {
     this.creatForm();
   }
 
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
 
     this.login.login().subscribe(data=>{
       let result = data;
+      this.cookie.put("type",result);
       console.log(result);
       if(result == '3'){
         this.cookie.put("userName", this.userInfo.value.userName);

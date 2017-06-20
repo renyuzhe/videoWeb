@@ -3,11 +3,15 @@
     <label>广告名称</label>
     <input type="text" class="form-control" [(ngModel)]="ads.name">
   </div>
+    <div class="form-group">
+      <label>广告公司</label>
+      <input type="text" class="form-control" [(ngModel)]="ads.company">
+    </div>
   <div class="form-group">
     <div class="form-group">
       <label>上传广告</label>
       <input type="file" (change)="onAdsChanged($event.target.files)" placeholder="Upload video" accept="video/mp4">
     </div>
   </div>
-  <button (click)="uploadAds()">上传</button>
+  <button (click)="uploadAds()" class="form-control">上传</button>
 </div>
