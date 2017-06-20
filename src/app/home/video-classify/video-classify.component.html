@@ -34,7 +34,7 @@
   <div class="col-md-7">
     <div class="col-md-4" *ngFor="let item of getClassifyWithoutFirst(); let i = index" (click)="startPlay(i)">
       
-        <img [src]='item.picture' width="100%">
+        <img [src]='item.picture' width="100%" height="130px">
         <b>{{item.name}}</b><br> 
         <p class="area">
           {{item.description}}
